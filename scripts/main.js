@@ -53,12 +53,9 @@ function searchCourseByName(nameKey, courses) {
 }
 function applyFilterByCredits() {
     var min = Number(inputSearchMin.value);
-    min = (min == null || isNaN(min)) ? 0 : min;
-    console.log(min);
+    min = (inputSearchMax.value == '' || isNaN(min)) ? 0 : min;
     var max = Number(inputSearchMax.value);
     max = (inputSearchMax.value == '' || isNaN(max)) ? 10 : max;
-    console.log(max);
-    console.log(inputSearchMax.value == '');
     clearCoursesInTable();
     var coursesFiltered = searchCourseByCredits(min, max, dataCourses);
     renderCoursesInTable(coursesFiltered);
